@@ -30,7 +30,7 @@ export class FoodsService {
 
 
   getFood(id: number) {
-    return this.foods.find((cat) => cat.id === id);
+    return this.foods.find((food) => food.id === id);
   }
 
 }

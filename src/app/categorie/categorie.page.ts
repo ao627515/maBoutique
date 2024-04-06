@@ -11,7 +11,7 @@ import { Food } from '../interfaces/food.interface';
 })
 export class CategoriePage {
 
-  categorieId: number|null = null;
+  private categorieId: number|null = null;
   categorieName: string|undefined = '';
   foods: Food[] = [];
 
