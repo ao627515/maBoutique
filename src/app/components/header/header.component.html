@@ -1,0 +1,25 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-item>
+      <ion-avatar slot="start">
+        <img alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      </ion-avatar>
+      <ion-label>
+        <ion-note>Salutations</ion-note>
+        <h2>Nom prenom</h2>
+      </ion-label>
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon slot="icon-only" name="notifications"></ion-icon>
+      </ion-button>
+      <ion-button>
+        <ion-badge color="primary">{{ items.length }}</ion-badge>
+        <ion-icon slot="start" name="cart"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-searchbar  mode="ios"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>

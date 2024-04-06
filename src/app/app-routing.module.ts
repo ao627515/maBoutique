@@ -12,7 +12,7 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
-    path: 'categorie',
+    path: 'categorie/:id',
     loadChildren: () => import('./categorie/categorie.module').then( m => m.CategoriePageModule)
   },
   {
