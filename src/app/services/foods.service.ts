@@ -1,20 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Categorie } from '../interfaces/categorie.interface';
-import { categories } from '../mocks/categories-mock';
+import { Food } from '../interfaces/food.interface';
+import { FOODS } from '../mocks/foods-mock';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FoodsService {
 
-  categories: Categorie[] = [];
+  foods: Food[] = [];
 
   constructor(
   ) {
-    this.categories = categories
+    this.foods = FOODS;
   }
 
-  getCategories(){
-    return this.categories;
+  getFoods() {
+    return this.foods;
   }
+
+  getFoodsByCategorie(categorieId: number|null): Food[] {
+    let foodsArray: Food[] = [];
+    this.foods.forEach((element) => {
+      if (element.categorie_id === categorieId) {
+        foodsArray.push(element);
+      }
+    });
+    return foodsArray;
+  }
+
+
+  getFood(id: number) {
+    return this.foods.find((cat) => cat.id === id);
+  }
+
 }

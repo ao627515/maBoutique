@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Categorie } from '../interfaces/categorie.interface';
-import { FoodsService } from '../services/foods.service';
+import { CategorieService } from '../services/categorie.service';
 
 @Component({
   selector: 'app-home',
@@ -18,10 +18,10 @@ export class HomePage implements OnInit {
 
   categories: Categorie[] = [];
 
-  constructor(private foodService: FoodsService) {}
+  constructor(private categorieService: CategorieService) {}
 
   ngOnInit(): void {
-    this.categories = this.foodService.getCategories();
+    this.categories = this.categorieService.getCategories();
   }
 
 }
