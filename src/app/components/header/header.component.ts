@@ -11,11 +11,13 @@ export class HeaderComponent {
 
   constructor(
     private cartService: CartService
-  ) { }
+  ) {
+    this.items = this.cartService.getItems();
+  }
 
   // ngOnInit() {}
 
-  items: Food[] = this.cartService.getItems();
+  items: {food:Food, qte:number}[] = [];
 
 
 }

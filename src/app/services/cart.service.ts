@@ -10,10 +10,20 @@ export class CartService {
     // private http: HttpClient
   ) { }
 
-  items: Food[] = [];
+  items: {food:Food, qte:number}[] = [];
 
-  addToCart(Food: Food) {
-    this.items.push(Food);
+  addToCart(food: Food) {
+    if(this.items.length != 0){
+      this.items.forEach(item => {
+        if(item.food.id === food.id){
+          item.qte++;
+        }else{
+          this.items.push({food: food, qte: 1});
+        }
+      });
+    }else{
+      this.items.push({food: food, qte: 1});
+    }
   }
 
   getItems() {
