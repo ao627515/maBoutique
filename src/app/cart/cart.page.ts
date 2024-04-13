@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CartService } from '../services/cart.service';
 import { Food } from '../interfaces/food.interface';
+import { Cart } from '../interfaces/cart';
 
 @Component({
   selector: 'app-cart',
@@ -9,7 +10,7 @@ import { Food } from '../interfaces/food.interface';
 })
 export class CartPage {
 
-  foods: {food:Food, qte:number}[] = [];
+  foods: Cart[] = [];
 
   constructor(
     private cartService: CartService

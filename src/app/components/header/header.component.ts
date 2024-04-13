@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Cart } from 'src/app/interfaces/cart';
 import { Food } from 'src/app/interfaces/food.interface';
 import { CartService } from 'src/app/services/cart.service';
 
@@ -7,17 +8,27 @@ import { CartService } from 'src/app/services/cart.service';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent {
+export class HeaderComponent implements OnInit{
 
   constructor(
     private cartService: CartService
-  ) {
-    this.items = this.cartService.getItems();
+  ) { }
+
+  ngOnInit() {
+    this.cartService.items$.subscribe((items: Cart[]) => {
+      this.items = items;
+    });
   }
 
-  // ngOnInit() {}
+  items: Cart[] = [];
 
-  items: {food:Food, qte:number}[] = [];
+  cartItemsCount(){
+    let res = 0;
+    this.items.forEach((item: Cart) => {
+      res += item.qte;
+    });
 
+    return res;
+  }
 
 }
