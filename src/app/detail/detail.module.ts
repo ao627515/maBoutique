@@ -8,6 +8,7 @@ import { DetailPageRoutingModule } from './detail-routing.module';
 
 import { DetailPage } from './detail.page';
 import { HeaderModule } from '../modules/header/header.module';
+import { CartCountModule } from '../modules/cart-count/cart-count.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { HeaderModule } from '../modules/header/header.module';
     FormsModule,
     IonicModule,
     DetailPageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    CartCountModule
   ],
   declarations: [DetailPage]
 })

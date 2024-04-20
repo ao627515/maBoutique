@@ -8,6 +8,7 @@ import { CategoriePageRoutingModule } from './categorie-routing.module';
 
 import { CategoriePage } from './categorie.page';
 import { HeaderModule } from '../modules/header/header.module';
+import { CartCountModule } from '../modules/cart-count/cart-count.module';
 
 @NgModule({
   imports: [
@@ -15,7 +16,8 @@ import { HeaderModule } from '../modules/header/header.module';
     FormsModule,
     IonicModule,
     CategoriePageRoutingModule,
-    HeaderModule
+    HeaderModule,
+    CartCountModule
   ],
   declarations: [CategoriePage]
 })

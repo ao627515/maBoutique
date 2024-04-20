@@ -11,12 +11,11 @@ import { Cart } from '../interfaces/cart';
   templateUrl: './detail.page.html',
   styleUrls: ['./detail.page.scss'],
 })
-export class DetailPage {
+export class DetailPage implements OnInit {
 
-  foodId: number|null = null;
-  categorieName: string|undefined = '';
-  food: Food|undefined;
-  itemInCart: number = 0;
+  foodId: number | null = null;
+  categorieName: string | undefined = '';
+  food: Food | undefined;
 
   constructor(
     private route: ActivatedRoute,
@@ -24,20 +23,18 @@ export class DetailPage {
     private categorieService: CategorieService,
     private cartService: CartService
   ) {
-    this.foodId = Number(route.snapshot.paramMap.get('id'));
+  }
+
+  ngOnInit(): void {
+    this.foodId = Number(this.route.snapshot.paramMap.get('id'));
     this.food = this.foodService.getFood(this.foodId);
+    if (this.foodId !== null) {
+      this.cartService.getItemInCart(this.foodId);
+    }
     this.categorieName = this.food ? this.categorieService.getCategorieName(this.food.categorie_id) : undefined;
   }
 
-  getItemInCart(){
-    this.cartService.items.forEach((item:any) => {
-      if (item.food.id === this.foodId) this.itemInCart = item.qte;
-    });
-  }
-
-  addInCart(qte:number){
+  addInCart(qte: number) {
     this.cartService.addToCart(this.food!, qte);
-    this.getItemInCart();
   }
 }
-

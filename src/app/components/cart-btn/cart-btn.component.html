@@ -1,3 +1,9 @@
-<p>
-  cart-btn works!
-</p>
+<!-- <ion-row *ngIf="!itemInCart ||  ( itemInCart.qte === 0)"> -->
+  <ion-row *ngIf="itemInCart ===  undefined">
+  <ion-col size="12">
+    <ion-button (click)="addInCart(1)" expand="full">
+      <ion-icon slot="start" name="cart"></ion-icon>
+      Panier
+    </ion-button>
+  </ion-col>
+</ion-row>
