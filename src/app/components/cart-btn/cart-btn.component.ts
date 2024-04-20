@@ -12,6 +12,9 @@ export class CartBtnComponent implements OnInit {
 
   @Input() food: Food | undefined;
 
+  @Input() mode = 'btn';
+  @Input() btnSize = 'default';
+
   itemInCart: Cart | undefined;
 
   constructor(
@@ -19,23 +22,27 @@ export class CartBtnComponent implements OnInit {
   ) { }
 
   ngOnInit() {
-
-    this.cartService.itemInCart$.subscribe((item: Cart | undefined) => {
-      if (item !== undefined && item.food.id === this.food?.id) {
-        this.itemInCart = item;
-      }else{
-        this.itemInCart = undefined;
-      }
+    this.cartService.items$.subscribe((items) => {
+        this.itemInCart = items.find((item) => item.food.id === this.food?.id);
     });
-
   }
 
   addInCart(qte: number) {
     this.cartService.addToCart(this.food!, qte);
+  }
 
-    if (this.food) {
-      this.cartService.getItemInCart(this.food.id);
+  coloumSizes() {
+    let size: number[] = [];
+    switch (this.btnSize) {
+      case 'default':
+      case 'large':
+        size = [2, 8, 2];
+        break;
+      case 'small':
+        size = [4, 4, 4];
+        break;
     }
+    return size;
   }
 
 }

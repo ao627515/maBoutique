@@ -28,9 +28,6 @@ export class DetailPage implements OnInit {
   ngOnInit(): void {
     this.foodId = Number(this.route.snapshot.paramMap.get('id'));
     this.food = this.foodService.getFood(this.foodId);
-    if (this.foodId !== null) {
-      this.cartService.getItemInCart(this.foodId);
-    }
     this.categorieName = this.food ? this.categorieService.getCategorieName(this.food.categorie_id) : undefined;
   }
 

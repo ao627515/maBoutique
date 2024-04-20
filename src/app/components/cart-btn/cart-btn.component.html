@@ -1,5 +1,5 @@
 <!-- <ion-row *ngIf="!itemInCart ||  ( itemInCart.qte === 0)"> -->
-  <ion-row *ngIf="itemInCart ===  undefined">
+  <ion-row *ngIf="!itemInCart">
   <ion-col size="12">
     <ion-button (click)="addInCart(1)" expand="full">
       <ion-icon slot="start" name="cart"></ion-icon>
@@ -7,3 +7,21 @@
     </ion-button>
   </ion-col>
 </ion-row>
+
+<ion-row  *ngIf="itemInCart" class="cartBtnCount">
+  <ion-col [size]="coloumSizes()[0]">
+    <ion-button (click)="addInCart(-1)" [size]="btnSize">
+      <ion-icon slot="icon-only" name="remove"></ion-icon>
+    </ion-button>
+  </ion-col>
+  <ion-col [size]="coloumSizes()[1]" class="nbSlot">
+    {{ itemInCart.qte }}
+  </ion-col>
+  <ion-col [size]="coloumSizes()[2]" class="ion-text-end">
+    <ion-button (click)="addInCart(1)" [size]="btnSize">
+      <ion-icon slot="icon-only" name="add"></ion-icon>
+    </ion-button>
+  </ion-col>
+</ion-row>
+
+

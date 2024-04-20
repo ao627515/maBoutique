@@ -11,8 +11,8 @@ export class CartService {
   private itemsSubject = new BehaviorSubject<Cart[]>([]);
   items$ = this.itemsSubject.asObservable();
 
-  private itemInCart = new BehaviorSubject<Cart | undefined>(undefined);
-  itemInCart$ = this.itemInCart.asObservable();
+  private itemIsInCart: BehaviorSubject<boolean> = new BehaviorSubject<boolean>(false);
+  itemIsInCart$ = this.itemIsInCart.asObservable();
 
   private items: Cart[] = [];
 
@@ -40,12 +40,12 @@ export class CartService {
     return this.items;
   }
 
-  getItemInCart(foodId: number) {
+  getItemIsInCart(foodId: number) {
     const item = this.items.find(item => item.food.id === foodId);
     if (item) {
-      this.itemInCart.next(item);
+      this.itemIsInCart.next(true);
     } else {
-      this.itemInCart.next(undefined);
+      this.itemIsInCart.next(false);
     }
   }
 
