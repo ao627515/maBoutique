@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Cart } from 'src/app/interfaces/cart';
 import { Food } from 'src/app/interfaces/food.interface';
 import { CartService } from 'src/app/services/cart.service';
@@ -10,6 +10,7 @@ import { CartService } from 'src/app/services/cart.service';
 })
 export class HeaderComponent implements OnInit{
 
+  @Input() searchbar:boolean = true;
   constructor(
     private cartService: CartService
   ) { }
