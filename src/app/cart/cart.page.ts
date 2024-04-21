@@ -10,12 +10,19 @@ import { Cart } from '../interfaces/cart';
 })
 export class CartPage {
 
-  foods: Cart[] = [];
+  itemsInCart: Cart[] = [];
 
   constructor(
     private cartService: CartService
   ) {
-    this.foods = this.cartService.getItems();
+    this.itemsInCart = this.cartService.getItems();
   }
 
+  deleteCartItem(itemId:number){
+    this.cartService.deleteCartItem(itemId);
+  }
+
+  sendCart(){
+    this.cartService.sendCart();
+  }
 }

@@ -15,33 +15,35 @@
       <ion-title size="large">cart</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-card *ngFor="let item of itemsInCart">
+    <div class="card-top">
+      <!-- <img alt="Silhouette of mountains" src="https://ionicframework.com/docs/img/demos/card-media.png" /> -->
+      <ion-thumbnail>
+        <img [src]="item.food.img" />
+      </ion-thumbnail>
 
-  <ion-card *ngIf="foods.length >= 0">
-    <!-- <ion-card-header>
-      <ion-card-title>Card Title</ion-card-title>
-      <ion-card-subtitle>Card Subtitle</ion-card-subtitle>
-    </ion-card-header> -->
-    <ion-card-content>
-      <ion-list >
-        <ion-card *ngFor="let item of foods">
-          <ion-row>
-            <ion-col size="4">
-              <img [src]="item.food.img" alt="">
-            </ion-col>
-            <ion-col size="8">
-              <ion-card>
-                <ion-card-header style="padding: 0;">
-                  <ion-card-subtitle style="font-size: 1rem;">Awesome Subtitle</ion-card-subtitle>
-                  <ion-card-title style="font-size: 1rem;">Awesome Title</ion-card-title>
-                </ion-card-header>
-                <ion-card-content style="font-size: 1rem;">
-                  Awesome content
-                </ion-card-content>
-              </ion-card>
-            </ion-col>
-          </ion-row>
-        </ion-card>
-      </ion-list>
-    </ion-card-content>
+      <ion-card-content>
+        <h5>{{ item.food.name }}</h5>
+        <h4>{{ item.food.price }} XOF</h4>
+      </ion-card-content>
+    </div>
+    <div class="card-bottom">
+      <ion-button fill="clear" (click)="deleteCartItem(item.food.id)">
+        <ion-icon  slot="start" name="trash"></ion-icon>
+        Supprimer
+      </ion-button>
+
+      <app-cart-btn [food]="item.food" btnSize="small"></app-cart-btn>
+
+    </div>
   </ion-card>
+
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-button expand="block" size="large" (click)="sendCart()">
+      Commander
+    </ion-button>
+  </ion-toolbar>
+</ion-footer>

@@ -1,0 +1,24 @@
+ion-card .card-top, .card-bottom{
+  display: flex;
+  flex-direction: row;
+  // margin: 0;
+  padding: 8px;
+}
+
+ion-card .card-top ion-thumbnail{
+  width: 30%;
+  height: 100%;
+}
+
+ion-card .card-top ion-card-content{
+  width: 70%;
+  padding: 0 0 0 8px;
+}
+
+ion-card .card-bottom app-cart-btn{
+  width: 100%;
+}
+
+ion-footer{
+  padding: 8px;
+}
