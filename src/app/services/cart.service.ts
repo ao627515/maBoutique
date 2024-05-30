@@ -15,28 +15,28 @@ export class CartService {
   itemIsInCart$ = this.itemIsInCart.asObservable();
 
   private items: Cart[] = [
-    {
-      food: {
-        id: 1,
-        img: "https://source.unsplash.com/500x300/?appetizer1",
-        name: "Entrée Printanière",
-        price: 5000,
-        description: "Découvrez notre délicieuse entrée printanière, composée de légumes frais de saison, accompagnés d'une vinaigrette maison légère et parfumée. Un véritable régal pour les papilles et un avant-goût de notre cuisine créative et raffinée.",
-        categorie_id: 1,
-      },
-      qte: 4
-    },
-    {
-      food: {
-        id: 2,
-        img: "https://source.unsplash.com/500x300/?appetizer2",
-        name: "Assiette Gourmande",
-        price: 6000,
-        description: "Laissez-vous tenter par notre assiette gourmande, un savoureux mélange de saveurs et de textures. Dégustez des bouchées de foie gras, des mini-quiches aux légumes, des brochettes de crevettes marinées et bien plus encore. Un assortiment parfait pour commencer votre repas en beauté.",
-        categorie_id: 1,
-      },
-      qte: 5
-    }
+    // {
+    //   food: {
+    //     id: 1,
+    //     img: "https://source.unsplash.com/500x300/?appetizer1",
+    //     name: "Entrée Printanière",
+    //     price: 5000,
+    //     description: "Découvrez notre délicieuse entrée printanière, composée de légumes frais de saison, accompagnés d'une vinaigrette maison légère et parfumée. Un véritable régal pour les papilles et un avant-goût de notre cuisine créative et raffinée.",
+    //     categorie_id: 1,
+    //   },
+    //   qte: 4
+    // },
+    // {
+    //   food: {
+    //     id: 2,
+    //     img: "https://source.unsplash.com/500x300/?appetizer2",
+    //     name: "Assiette Gourmande",
+    //     price: 6000,
+    //     description: "Laissez-vous tenter par notre assiette gourmande, un savoureux mélange de saveurs et de textures. Dégustez des bouchées de foie gras, des mini-quiches aux légumes, des brochettes de crevettes marinées et bien plus encore. Un assortiment parfait pour commencer votre repas en beauté.",
+    //     categorie_id: 1,
+    //   },
+    //   qte: 5
+    // }
   ];
 
   constructor() {
@@ -49,7 +49,6 @@ export class CartService {
       existingItem.qte += qte;
       if (existingItem.qte === 0) {
         let index = this.items.indexOf(existingItem);
-
         if (index !== -1) {
           this.items.splice(index, 1);
         }

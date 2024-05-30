@@ -10,7 +10,7 @@
 
   <!-- <ion-searchbar mode="ios"></ion-searchbar> -->
   <ion-card mode="ios">
-    <img alt="Silhouette of mountains" [src]="hero[1]" />
+    <img alt="Silhouette of mountains" [src]="hero[1]" height="150px" width="100%" />
   </ion-card>
 
   <ion-list-header>
@@ -19,7 +19,7 @@
   <ion-grid fixed>
     <ion-row>
       <ion-col size="6" *ngFor="let categorie of categories">
-        <ion-card [routerLink]="['/categorie', categorie.id]">
+        <ion-card [routerLink]="['/categorie', categorie.id]" class="ion-no-margin">
           <img alt="Silhouette of mountains" [src]="categorie.img" />
           <ion-card-header>
             <ion-card-subtitle>{{ categorie.name }}</ion-card-subtitle>
